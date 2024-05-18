@@ -12,6 +12,7 @@ const sequelize = new Sequelize('mysql://root:qwerty@localhost:3306/marketplace'
 
 // Import User model
 const { User } = require('./models/user');
+const { Category } = require('./models/category');
 
 // Testing connection
 sequelize
@@ -24,12 +25,19 @@ sequelize
     });
     
 const { createUser, updateUser, deleteUser, getUser } = require('./controllers/userController');
+const {createCategory, updateCategory, deleteCategory, getCategory} = require('./controllers/categoryController');
 
 // Users routes
 app.get('/users/:id', getUser);
 app.post('/users', createUser);
 app.put('/users/update/:id', updateUser);
 app.delete('/users/delete/:id', deleteUser);
+
+// Category routes
+app.get('/categories/:id', getCategory);
+app.post('/categories', createCategory);
+app.put('/categories/update/:id', updateCategory);
+app.delete('/categories/delete/:id', deleteCategory);
 
 
 // Simple route
