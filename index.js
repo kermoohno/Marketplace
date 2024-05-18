@@ -1,18 +1,33 @@
-// Import the Express module
-const express = require('express');
-
-// Create an instance of Express
+const express = require("express")
 const app = express();
 
-// Define a port for the server to listen on
-const port = 3000;
+//parse requests of content type - application/json
+app.use(express.json());
+// Parse requests of content type- application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true}));
 
-// Define a route handler for the default home page
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
+const Sequelize = require('sequelize');
+
+// Connection to database
+const sequelize = new Sequelize('mysql://root:qwerty@localhost:3306/marketplace');
+
+// Testing connection
+sequelize
+    .authenticate()
+    .then(() => {
+        console.log('Connected to the database');
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+    });
+
+// simple route
+
+app.get("/", (req,res) => {
+    res.json({message: "Welcome to sequelize application."});
 });
 
-// Start the server and have it listen on the specified port
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+// listen requests
+app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
 });
