@@ -41,11 +41,12 @@ app.post('/categories', createCategory);
 app.put('/categories/update/:id', updateCategory);
 app.delete('/categories/delete/:id', deleteCategory);
 
-const { createItem, updateItem, deleteItem, getItem } = require('./controllers/itemController');
+const { createItem, updateItem, deleteItem, getItem, getAllItems } = require('./controllers/itemController');
 
 // Item routes
 app.get('/items/:id', getItem);
-app.post('/items', createItem);
+app.get('/items', getAllItems);
+app.post('/items/create', createItem);
 app.put('/items/update/:id', updateItem);
 app.delete('/items/delete/:id', deleteItem);
 

@@ -52,9 +52,23 @@ const deleteItem = async (req, res) => {
   }
 };
 
+const getAllItems = async (req, res) => {
+  try {
+    // Fetch all items from the database
+    const items = await Item.findAll();
+    
+    // Send the items in the response
+    res.status(200).json(items);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to fetch items' });
+  }
+};
+
 module.exports = {
   createItem,
   updateItem,
   deleteItem,
-  getItem
+  getItem,
+  getAllItems
 };
