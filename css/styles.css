@@ -1,0 +1,32 @@
+.card-title{
+    font-size: 32px;
+    padding-bottom: 10px;
+    font-family: Inkut Antiqua;
+    font-weight: 700;
+}
+
+.item-info p{
+   font-size: 20px;
+   font-weight: 600;
+   font-family: Inkut Antiqua;
+}
+
+.item-price{
+    font-size: 24px;
+    font-weight: 600;
+    padding-top: 20px;
+    font-family: Inkut Antiqua;
+}
+
+.item-user{
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    font-family: Inkut Antiqua;
+}
+.card-img-top{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+}

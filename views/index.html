@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marketplace application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <h1 class="pt-5 pb-5">Marketplace Items</h1>
+                    </div>
+                    <!-- Add New Item Button -->
+                    <div class="text-center mb-4">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addItemModal">Add New Item</button>
+                    </div>
+                    <!-- Items will be injected here by JavaScript -->
+                    <div class="row justify-content-center" id="items-container">
+                        <!-- Items will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap Modal to edit existing item -->
+    <div class="modal fade" id="editItemModal" tabindex="-1" aria-labelledby="editItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editItemModalLabel">Edit Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editItemForm">
+                        <div class="form-group mb-3">
+                            <label for="itemName">Name</label>
+                            <input type="text" class="form-control" id="itemName" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="itemQuality">Quality</label>
+                            <input type="text" class="form-control" id="itemQuality" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="itemEnchantment">Enchantment</label>
+                            <input type="text" class="form-control" id="itemEnchantment" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="itemTier">Tier</label>
+                            <input type="text" class="form-control" id="itemTier" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="itemPrice">Price</label>
+                            <input type="number" class="form-control" id="itemPrice" required>
+                        </div>
+                        <input type="hidden" id="itemId">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Modal for new item -->
+    <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addItemModalLabel">Add New Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addItemForm">
+                        <div class="form-group mb-3">
+                            <label for="itemName">Name</label>
+                            <input type="text" class="form-control" id="newItemName" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="itemPrice">Price</label>
+                            <input type="number" class="form-control" id="newItemPrice" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="itemTier">Tier</label>
+                            <input type="text" class="form-control" id="newItemTier" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="itemQuality">Quality</label>
+                            <input type="text" class="form-control" id="newItemQuality" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="itemQuantity">Quantity</label>
+                            <input type="number" class="form-control" id="newItemQuantity" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="itemEnchantment">Enchantment</label>
+                            <input type="text" class="form-control" id="newItemEnchantment" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="itemImage">Image</label>
+                            <input type="text" class="form-control" id="newItemImage">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="itemCategoryId">Category ID</label>
+                            <input type="number" class="form-control" id="newItemCategoryId" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="itemUserId">User ID</label>
+                            <input type="number" class="form-control" id="newItemUserId" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Item</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/9aa33ba27f.js" crossorigin="anonymous"></script>
+    <script src="../js/items.js"></script>
+    <script src="../js/items.js" type="module"></script>
+    <script src="../js/newItem.js"></script>
+
+  </body>
+</html>
